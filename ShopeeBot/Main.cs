@@ -171,7 +171,7 @@ namespace ShopeeBot
                 //Masukan Shopee Pay
                 var shopeePay = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
                 shopeePay.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("/html/body/div[9]/div[1]/div[3]/div[1]"))).Click();
-                AddLogs(LogGenerator("Barang berhasil di Bayar!"));
+                AddLogs(LogGenerator("Masukan Pin Kamu!"));
             }
             catch (Exception ex)
             {
