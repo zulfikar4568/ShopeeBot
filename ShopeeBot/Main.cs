@@ -144,33 +144,33 @@ namespace ShopeeBot
                 if (Tb_Varian.Text != "")
                 {
                     var varian = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-                    varian.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath($"//button[contains(text(),'{Tb_Varian.Text}')]"))).Click();
+                    varian.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath($"//button[contains(text(),'{Tb_Varian.Text}')]"))).Click();
                     AddLogs(LogGenerator("Berhasil memilih Varian!"));
                 }
 
                 //Klik Tombol Beli
                 var beli = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-                beli.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='main']/div/div[2]/div[1]/div/div[2]/div/div[1]/div[3]/div/div[5]/div/div/button[2]"))).Click();
+                beli.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id='main']/div/div[2]/div[1]/div/div[2]/div/div[1]/div[3]/div/div[5]/div/div/button[2]"))).Click();
                 AddLogs(LogGenerator("Proses pembelian Barang!"));
 
                 //Klik Tombol Checkout
                 var checkout = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-                checkout.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='main']/div/div[2]/div[2]/div/div[3]/div[2]/div[7]/button[4]/span"))).Click();
+                checkout.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id='main']/div/div[2]/div[2]/div/div[3]/div[2]/div[7]/button[4]/span"))).Click();
                 AddLogs(LogGenerator("Proses berhasil di checkout!"));
 
                 //Klik Tombol Buat Pesanan
                 var pesanan = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-                pesanan.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='main']/div/div[3]/div[2]/div[4]/div[2]/div[7]/button"))).Click();
+                pesanan.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id='main']/div/div[3]/div[2]/div[4]/div[2]/div[7]/button"))).Click();
                 AddLogs(LogGenerator("Pesanan Dibuat!"));
 
                 //Klik Tombol Bayar
                 var bayar = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-                bayar.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("pay-button"))).Click();
+                bayar.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("pay-button"))).Click();
                 AddLogs(LogGenerator("Barang sedang di Bayar!"));
 
                 //Masukan Shopee Pay
                 var shopeePay = new WebDriverWait(driver, TimeSpan.FromSeconds(100));
-                shopeePay.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[9]/div[1]/div[3]/div[1]"))).Click();
+                shopeePay.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("/html/body/div[9]/div[1]/div[3]/div[1]"))).Click();
                 AddLogs(LogGenerator("Barang berhasil di Bayar!"));
             }
             catch (Exception ex)
