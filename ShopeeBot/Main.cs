@@ -19,6 +19,7 @@ using System.Globalization;
 using System.Threading;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using System.Diagnostics;
 
 namespace ShopeeBot
 {
@@ -29,6 +30,7 @@ namespace ShopeeBot
             InitializeComponent();
             this.Palette = MyPalette;
             InitializationSettingsChrome();
+            AddVersionNumber();
             Tb_LinkProduct.Text = ConfigurationManager.AppSettings["default_link_produk"];
             Tb_Cookies.Text = ConfigurationManager.AppSettings["default_cookiee"];
             Tb_Varian.Text = ConfigurationManager.AppSettings["default_varian"];
@@ -37,6 +39,13 @@ namespace ShopeeBot
         private IWebDriver driver = null;
         private bool bActive = false;
         private string sSetPointTime = "";
+        private void AddVersionNumber()
+        {
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+
+            this.Text += $" V.{versionInfo.FileVersion}";
+        }
         private void InitializationSettingsChrome()
         {
             this.options = new ChromeOptions();
